@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Pizzeria.Models.Pizza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayNameFor(model => model.Nome)</h5>
+            <img src="@Html.DisplayNameFor(model => model.Foto)" class="card-img-top" alt="Immagine del prodotto">
+            <p class="card-text">Prezzo: @Html.DisplayNameFor(model => model.Prezzo)</p>
+            <p class="card-text">Tempo di consegna: @Html.DisplayNameFor(model => model.TempoConsegna)</p>
+            <p class="card-text">Ingredienti: @Html.DisplayNameFor(model => model.Descrizione)</p>
+            <a href="#" class="btn btn-primary">Dettagli</a>
+        </div>
+        <div class="card-footer">
+            <div class="form-button-sm">
+                @Html.ActionLink("Details", "Details", new { id = item.IdPizza }, new { @class = "btn btn-outline-dark" })
+                @Html.ActionLink("Aggiungi", "Edit", new { id = item.IdPizza }, new { @class = "btn btn-outline-primary" })
+                @Html.ActionLink("Delete", "Pizze", new { id = item.IdPizza }, new { @class = "btn btn-outline-danger" })
+            </div>
+        </div>
+    </div>
+
+}
+
+
